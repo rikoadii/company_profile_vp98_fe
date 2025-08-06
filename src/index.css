@@ -1,12 +1,13 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 body {
   margin: 0;
   min-height: 100vh;
   background-color: #FFFFFF;
-  background-image: url('./assets/background_web.png');
-  background-repeat: repeat;
-  background-size: auto;
+  background-image: url('./assets/Illustration_2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   opacity: 1;
   position: relative;
 }
@@ -18,10 +19,10 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./assets/background_web.png');
-  background-repeat: repeat;
-  background-size: auto;
-  opacity: 0.4;
+  background-image: url('./assets/Illustration_2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
   z-index: -1;
   pointer-events: none;
 }
