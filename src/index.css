@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-body {
+.main {
   font-family: 'Archivo', sans-serif;
   margin: 0;
   max-height: 100vh;
@@ -12,7 +12,7 @@ body {
   background-position: center -50px;
   opacity: 1;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 
