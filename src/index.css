@@ -1,27 +1,33 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
-body {
+.main {
+  font-family: 'Archivo', sans-serif;
   margin: 0;
-  min-height: 100vh;
+  max-height: 100vh;
   background-color: #FFFFFF;
-  background-image: url('./assets/background_web.png');
-  background-repeat: repeat;
-  background-size: auto;
+  background-image: url('./assets/Illustration.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -50px;
   opacity: 1;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-intro {
+  background-image: linear-gradient(to bottom, #990000, #FF0000), url('./assets/bg-introduction.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center ;
   position: relative;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('./assets/background_web.png');
-  background-repeat: repeat;
-  background-size: auto;
-  opacity: 0.4;
-  z-index: -1;
-  pointer-events: none;
+
+.btn-header {
+  background-color: #FF0000;
+}
+
+@utility navbar {
+  @apply px-0 py-0 mx-0 my-0;
 }
