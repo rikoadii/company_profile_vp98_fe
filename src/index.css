@@ -1,10 +1,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.main {
+
+body {
   font-family: 'Archivo', sans-serif;
   margin: 0;
-  max-height: 100vh;
+  max-width: 100vw;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+.home {
   background-color: #FFFFFF;
   background-image: url('./assets/Illustration.png');
   background-repeat: no-repeat;
@@ -12,7 +18,7 @@
   background-position: center -50px;
   opacity: 1;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 
@@ -22,4 +28,14 @@
 
 @utility navbar {
   @apply px-0 py-0 mx-0 my-0;
+}
+
+.team {
+  background-image: url('./assets/logo_background_vp98.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #FFFFFF;
+  position: relative;
+  opacity: 0.3;
 }
