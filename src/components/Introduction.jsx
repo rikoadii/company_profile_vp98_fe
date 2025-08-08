@@ -1,6 +1,6 @@
 export default function Introduction() {
   return (
-    <div className="bg-intro py-12 pb-130 rounded-tl-[40px]">
+    <div className="bg-intro py-12 pb-130 rounded-tl-[40px] w-full">
       <div className="container mx-auto px-16 max-w-5xl">
         <div className="mb-12">
           <h2 className="text-5xl font-bold text-white">Introduction</h2>

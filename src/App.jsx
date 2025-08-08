@@ -3,18 +3,22 @@ import Projects from './sections/Projects'
 import Hero from './components/Hero'
 import Services from './sections/Services'
 import About from './sections/About'
+import Team from './sections/Team'
 
 function App() {
   return (
-    <div 
-      className="min-h-screen py-8 main"
-    >
+    <>
+      <div className='home'>
       <Navbar />
       <Hero />
+    </div>
       <About />
       <Services />
       <Projects />
-    </div>
+      <div>
+      <Team />
+      </div>
+    </>
   )
 }
 

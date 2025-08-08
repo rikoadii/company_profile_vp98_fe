@@ -3,8 +3,9 @@ import "../App.css"
 
 export default function Navbar() {
   return (
+    <div className="w-full px-18 pt-8">
 
-    <div className="navbar bg-neutral-50 navbar-custom rounded-4xl px-18">
+    <div className="navbar bg-neutral-50 navbar-custom rounded-4xl">
   <div className="navbar-start">
     {/* <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-neutral lg:hidden text-neutral-content">
@@ -41,5 +42,6 @@ export default function Navbar() {
     <a className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base">Contact</a>
   </div>
 </div>
+    </div>
   )
 }
