@@ -3,7 +3,7 @@ import "../App.css"
 
 export default function Navbar() {
   return (
-    <div className="w-full px-18">
+    <div className="w-full px-18 pt-8">
 
     <div className="navbar bg-neutral-50 navbar-custom rounded-4xl">
   <div className="navbar-start">

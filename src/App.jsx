@@ -7,17 +7,18 @@ import Team from './sections/Team'
 
 function App() {
   return (
-    <div 
-      className="min-h-screen py-8"
-    >
+    <>
       <div className='home'>
       <Navbar />
       <Hero />
+    </div>
       <About />
       <Services />
       <Projects />
+      <div>
       <Team />
-    </div>
+      </div>
+    </>
   )
 }
 

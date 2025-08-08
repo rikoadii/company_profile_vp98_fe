@@ -7,7 +7,7 @@ import WhoWeAre from "../components/WhoWeAre";
 
 export default function About() {
     return (
-        <div className="py-20 bg-gray-50">
+        <div className="py-20 bg-gray-50 w-full">
             <div className="container mx-auto">
                 <div className="flex flex-row gap-8">
                     <div className="flex-1">

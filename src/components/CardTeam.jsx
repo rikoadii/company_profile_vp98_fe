@@ -2,7 +2,7 @@ export default function CardTeam({ member }) {
   // Fallback jika member tidak ada
   if (!member) {
     return (
-      <div className="card bg-white w-76 border-6 border-white shadow-[0px_4px_75px_-16px_rgba(0,0,0,0.102)] rounded-4xl">
+      <div className="card bg-white w-66 border-6 border-white shadow-[0px_4px_75px_-16px_rgba(0,0,0,0.102)] rounded-4xl">
         <div className="card-body items-center text-center">
           <p className="text-gray-500">No member data</p>
         </div>
@@ -11,12 +11,12 @@ export default function CardTeam({ member }) {
   }
 
   return (
-      <div className="card bg-white w-76 border-6 border-white shadow-[0px_4px_75px_-16px_rgba(0,0,0,0.102)] rounded-4xl">
-  <figure className="px-10 pt-10">
+      <div className="card bg-white w-66 border-6 border-white shadow-[0px_4px_75px_-16px_rgba(0,0,0,0.102)] rounded-4xl">
+  <figure className="px-3 pt-3 h-60">
     <img
       src={member.image}
       alt={member.name}
-      className="rounded-3xl" 
+      className="rounded-3xl w-full h-full object-cover object-top" 
       onError={(e) => {
             console.error('Image failed to load:', member.image);
             e.target.style.display = 'none';

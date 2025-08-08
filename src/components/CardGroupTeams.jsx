@@ -9,24 +9,28 @@ export default function CardGroupTeams() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="space-y-8 max-w-6xl mx-auto">
+      <div className="space-y-6 max-w-6xl mx-auto">
         {/* Card pertama - paling atas */}
         <div className="flex justify-center">
           <CardTeam key={firstMember.id} member={firstMember} />
         </div>
 
         {/* 3 card di tengah */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-          {middleMembers.map((member) => (
-            <CardTeam key={member.id} member={member} />
-          ))}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl">
+            {middleMembers.map((member) => (
+              <CardTeam key={member.id} member={member} />
+            ))}
+          </div>
         </div>
 
         {/* 2 card terakhir */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center max-w-2xl mx-auto">
-          {lastMembers.map((member) => (
-            <CardTeam key={member.id} member={member} />
-          ))}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+            {lastMembers.map((member) => (
+              <CardTeam key={member.id} member={member} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

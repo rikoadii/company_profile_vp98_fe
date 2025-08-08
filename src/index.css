@@ -18,7 +18,7 @@ body {
   background-position: center -50px;
   opacity: 1;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .bg-intro {
@@ -46,11 +46,20 @@ body {
 }
 
 .team {
-  background-image: url('./assets/logo_background_vp98.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   background-color: #FFFFFF;
   position: relative;
-  opacity: 0.3;
+}
+
+.team::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/logo_background_vp98.png');
+  background-repeat: no-repeat;
+  background-size: 60%; /* Ubah ukuran menjadi 60% dari container */
+  background-position: center;
+  opacity: 0.4;
 }
