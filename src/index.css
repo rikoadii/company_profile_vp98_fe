@@ -15,6 +15,21 @@
   overflow-x: hidden;
 }
 
+.bg-intro {
+  background-image: linear-gradient(to bottom, #990000, #FF0000), url('./assets/bg-introduction.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center ;
+  position: relative;
+}
+.bg-event {
+  background-image: linear-gradient(to bottom, #FF0000, #990000), url('./assets/bg-introduction.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center ;
+  position: relative;
+}
+
 
 .btn-header {
   background-color: #FF0000;
