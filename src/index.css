@@ -1,10 +1,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.main {
+
+body {
   font-family: 'Archivo', sans-serif;
   margin: 0;
-  max-height: 100vh;
+  max-width: 100vw;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+.home {
   background-color: #FFFFFF;
   background-image: url('./assets/Illustration.png');
   background-repeat: no-repeat;
@@ -37,4 +43,23 @@
 
 @utility navbar {
   @apply px-0 py-0 mx-0 my-0;
+}
+
+.team {
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.team::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/logo_background_vp98.png');
+  background-repeat: no-repeat;
+  background-size: 60%; /* Ubah ukuran menjadi 60% dari container */
+  background-position: center;
+  opacity: 0.4;
 }
