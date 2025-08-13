@@ -29,7 +29,7 @@ export default function Hero() {
 
       {/* Stats Section */}
       <div className="container mx-auto mb-10 px-4">
-        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-8 sm:gap-[100px]">
+        <div className="flex flex-row sm:flex-row flex-wrap items-center justify-center gap-8 sm:gap-[100px]">
           <div className="flex flex-col items-center space-y-1 sm:space-y-2">
             <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-black">
               50<span className="text-[#FF0000]">+</span>
