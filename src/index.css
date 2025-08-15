@@ -13,7 +13,7 @@ body {
 
 .home {
   background-color: #FFFFFF;
-  background-image: url('./assets/Illustration.png');
+  background-image: url('./assets/Illustration.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center -50px;
@@ -23,7 +23,7 @@ body {
 }
 
 .bg-intro {
-  background-image: linear-gradient(to bottom, #990000, #FF0000), url('./assets/bg-introduction.png');
+  background-image: linear-gradient(to bottom, #990000, #FF0000), url('./assets/bg-introduction.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center ;
@@ -58,7 +58,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('./assets/logo_background_vp98.png');
+  background-image: url('./assets/logo_background_vp98.webp');
   background-repeat: no-repeat;
   background-size: 60%; /* Ubah ukuran menjadi 60% dari container */
   background-position: center;

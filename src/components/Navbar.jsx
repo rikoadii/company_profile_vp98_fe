@@ -1,4 +1,4 @@
-import logo from "../assets/logo_vp98.png"
+import logo from "../assets/logo_vp98.webp"
 import "../App.css"
 import { useState } from "react"
 

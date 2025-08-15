@@ -1,10 +1,10 @@
 // Import images directly using Vite's static asset handling
-import IthonkImg from '../assets/teams/ithonk.png';
-import JamesImg from '../assets/teams/james.png';
-import SatriaImg from '../assets/teams/satria.png';
-import AgamImg from '../assets/teams/agam.png';
-import NilaPasilaImg from '../assets/teams/nila_pasila.png';
-import EvelynPuputImg from '../assets/teams/evelyn-puput.png';
+import IthonkImg from '../assets/teams/ithonk.webp';
+import JamesImg from '../assets/teams/james.webp';
+import SatriaImg from '../assets/teams/satria.webp';
+import AgamImg from '../assets/teams/agam.webp';
+import NilaPasilaImg from '../assets/teams/nila_pasila.webp';
+import EvelynPuputImg from '../assets/teams/evelyn-puput.webp';
 
 export const teamMembers = [
   {

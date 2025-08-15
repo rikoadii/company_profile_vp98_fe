@@ -1,6 +1,6 @@
 import AboutCompany from "../components/AboutCompany"
 import Introduction from "../components/Introduction"
-import aboutImage from "../assets/about-v98.png"
+import aboutImage from "../assets/about-v98.webp"
 import Event from "../components/Event"
 import WhoWeAre from "../components/WhoWeAre"
 import Marquee from "react-fast-marquee"
