@@ -1,39 +1,39 @@
-import Coinbase from '../assets/company/koko.png';
-import Dropbox from '../assets/company/sampoerna.png';
-import Slack from '../assets/company/ntb.png';
-import Spotify from '../assets/company/kpu.png';
-import Webflow from '../assets/company/astra.png';
-import Zoom from '../assets/company/nutribaby.png';
-import mandalika from '../assets/company/mandalika.png';
+import KokoCrunch from '../assets/company/koko.webp';
+import Sampoerna from '../assets/company/sampoerna.webp';
+import Ntb from '../assets/company/ntb.webp';
+import Kpu from '../assets/company/kpu.webp';
+import Astra from '../assets/company/astra.webp';
+import Nutribaby from '../assets/company/nutribaby.webp';
+import Mandalika from '../assets/company/mandalika.webp';
 
 
 export const collabData = [
     {
         id: 1,
-        image: Coinbase,
+        image: KokoCrunch,
     },
     {
         id: 2,
-        image: Dropbox,
+        image: Sampoerna,
     },
     {
         id: 3,
-        image: Slack,
+        image: Ntb,
     },
     {
         id: 4,
-        image: Spotify,
+        image: Kpu,
     },
     {
         id: 5,
-        image: Webflow,
+        image: Astra,
     },
     {
         id: 6,
-        image: Zoom,
+        image: Nutribaby,
     },
     {
         id: 7,
-        image: mandalika,
+        image: Mandalika,
     },
 ];
