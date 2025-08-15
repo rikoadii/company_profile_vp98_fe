@@ -1,4 +1,4 @@
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar'
 import Projects from './sections/Projects'
 import Hero from './components/Hero'
 import Services from './sections/Services'

@@ -1,15 +1,5 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import CardTeam from './CardTeam';
 import { teamMembers } from '../data/teamData';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-// Import custom carousel styles
-import './TeamCarousel.css';
 
 export default function TeamCarousel() {
   return (
@@ -42,53 +32,13 @@ export default function TeamCarousel() {
         </div>
       </div>
 
-      {/* Mobile & Tablet Layout - Carousel */}
+      {/* Mobile & Tablet Layout - Grid 2 Kolom */}
       <div className="lg:hidden">
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={16}
-          slidesPerView={1}
-          centeredSlides={true}
-          navigation={true}
-          pagination={{ 
-            clickable: true,
-            dynamicBullets: true 
-          }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            380: {
-              slidesPerView: 1.3,
-              spaceBetween: 16,
-            },
-            480: {
-              slidesPerView: 1.5,
-              spaceBetween: 20,
-            },
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 24,
-              centeredSlides: false,
-            },
-            768: {
-              slidesPerView: 2.5,
-              spaceBetween: 30,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 32,
-            }
-          }}
-          className="team-carousel"
-        >
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
           {teamMembers.map((member) => (
-            <SwiperSlide key={member.id}>
-              <CardTeam member={member} />
-            </SwiperSlide>
+            <CardTeam key={member.id} member={member} />
           ))}
-        </Swiper>
+        </div>
       </div>
     </div>
   );
