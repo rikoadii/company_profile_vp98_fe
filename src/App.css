@@ -15,7 +15,7 @@
 }
 
 .navbar-link:focus {
-  color: #000000 !important; /* text-neutral */
+  color: #FF0000 !important; /* text-neutral */
   background-color: transparent !important;
 }
 

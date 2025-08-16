@@ -9,7 +9,7 @@ import Footer from './sections/Footer'
 function App() {
   return (
     <>
-      <div className='home'>
+      <div className='home' id='home'>
       <Navbar />
       <Hero />
     </div>

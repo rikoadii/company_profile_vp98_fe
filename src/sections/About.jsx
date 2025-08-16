@@ -8,7 +8,7 @@ import { collabData } from "../data/collabData.js"
 
 export default function About() {
   return (
-    <div className="py-10 md:py-20 w-full">
+    <div className="py-10 md:py-20 w-full" id="about">
       <div className="container mx-auto md:px-0">
         <div className="flex flex-col lg:flex-row gap-4 md:gap-8">
           <div className="flex-1">

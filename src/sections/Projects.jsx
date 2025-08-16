@@ -5,7 +5,7 @@ import { projects } from "../data/projectsData.js";
 
 export default function Projects() {
     return (
-        <div className="w-full mt-8 sm:mt-12 md:mt-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-18 bg-white">
+        <div className="w-full mt-8 sm:mt-12 md:mt-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-18 bg-white" id="projects">
             <HeaderSection 
                 title="Recent Projects" 
                 subtitle="Victory Production"

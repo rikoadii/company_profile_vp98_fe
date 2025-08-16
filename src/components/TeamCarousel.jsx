@@ -8,7 +8,7 @@ export default function TeamCarousel() {
       <div className="hidden lg:block">
         <div className="space-y-6 max-w-6xl mx-auto">
           {/* Card pertama - paling atas */}
-          <div className="flex justify-center">
+          <div className="flex justify-center max-w-[240px] mx-auto">
             <CardTeam key={teamMembers[0].id} member={teamMembers[0]} />
           </div>
 
@@ -23,9 +23,11 @@ export default function TeamCarousel() {
 
           {/* 2 card terakhir */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-2 gap-8 max-w-2xl">
+            <div className="grid grid-cols-2 gap-8 max-w-xl">
               {teamMembers.slice(4, 6).map((member) => (
-                <CardTeam key={member.id} member={member} />
+                <div key={member.id} className="max-w-[240px]">
+                  <CardTeam member={member} />
+                </div>
               ))}
             </div>
           </div>

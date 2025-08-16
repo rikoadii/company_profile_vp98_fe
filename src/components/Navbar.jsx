@@ -19,11 +19,11 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><a className="navbar-link text-base font-semibold">Home</a></li>
-            <li><a className="navbar-link text-base font-semibold">About</a></li>
-            <li><a className="navbar-link text-base font-semibold">Services</a></li>
-            <li><a className="navbar-link text-base font-semibold">Team</a></li>
-            <li><a className="navbar-link text-base font-semibold">Projects</a></li>
+            <li><a className="navbar-link text-base font-semibold" href="#home">Home</a></li>
+            <li><a className="navbar-link text-base font-semibold" href="#about">About</a></li>
+            <li><a className="navbar-link text-base font-semibold" href="#services">Services</a></li>
+            <li><a className="navbar-link text-base font-semibold" href="#team">Team</a></li>
+            <li><a className="navbar-link text-base font-semibold" href="#projects">Projects</a></li>
           </ul>
         </div>
         
@@ -47,11 +47,11 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-neutral-50 rounded-b-2xl shadow-lg lg:hidden z-50 mt-2">
             <ul className="menu menu-vertical p-4">
-              <li><a className="navbar-link text-base font-semibold py-3">Home</a></li>
-              <li><a className="navbar-link text-base font-semibold py-3">About</a></li>
-              <li><a className="navbar-link text-base font-semibold py-3">Services</a></li>
-              <li><a className="navbar-link text-base font-semibold py-3">Team</a></li>
-              <li><a className="navbar-link text-base font-semibold py-3">Projects</a></li>
+              <li><a className="navbar-link text-base font-semibold py-3" href="#home">Home</a></li>
+              <li><a className="navbar-link text-base font-semibold py-3" href="#about">About</a></li>
+              <li><a className="navbar-link text-base font-semibold py-3" href="#services">Services</a></li>
+              <li><a className="navbar-link text-base font-semibold py-3" href="#team">Team</a></li>
+              <li><a className="navbar-link text-base font-semibold py-3" href="#projects">Projects</a></li>
               <li className="pt-2">
                 <a className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base w-full">Contact</a>
               </li>
