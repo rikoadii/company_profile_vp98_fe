@@ -10,9 +10,9 @@ export default function GroupButtonProjects(){
     ];
 
     return (
-        <div className="w-full px-2 sm:px-4 md:px-6">
-            {/* Desktop Layout - Flex normal */}
-            <div className="hidden md:flex flex-wrap justify-center items-center w-full gap-2 sm:gap-3 md:gap-4">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+            {/* Desktop Layout */}
+            <div className="hidden md:flex flex-wrap justify-center items-center w-full gap-4">
                 {buttonsData.map((button, index) => (
                     <ButtonProjects key={index} text={button.text} />
                 ))}

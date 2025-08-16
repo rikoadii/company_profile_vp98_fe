@@ -28,7 +28,7 @@ export default function About() {
           </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-4 md:gap-8">
-          <div className="flex-1 mt-[-132px] md:mt-[-300px] lg:mt-[-530px]">
+          <div className="flex-1 mt-[-160px] md:mt-[-300px] lg:mt-[-530px]">
             <Event />
           </div>
           <div className="flex-1">
