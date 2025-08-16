@@ -1,35 +1,17 @@
-/* Button Carousel Styles */
-.button-carousel {
-  padding: 8px 0 !important;
-  overflow: visible !important;
+/* Scrollable Button Container - Hide Scrollbar */
+.scrollbar-hide {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
-.button-carousel .swiper-wrapper {
-  align-items: center !important;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
-.button-carousel .swiper-slide {
-  width: auto !important;
-  flex-shrink: 0 !important;
-}
-
-/* Hide any default navigation/pagination */
-.button-carousel .swiper-button-next,
-.button-carousel .swiper-button-prev,
-.button-carousel .swiper-pagination {
-  display: none !important;
-}
-
-/* Smooth scrolling */
-.button-carousel .swiper-wrapper {
-  transition-timing-function: ease-out !important;
-}
-
-/* Cursor styling for touch devices */
-.button-carousel {
-  cursor: grab !important;
-}
-
-.button-carousel:active {
-  cursor: grabbing !important;
+/* Ensure no horizontal overflow on parent containers */
+.w-full {
+  max-width: 100%;
+  box-sizing: border-box;
 }

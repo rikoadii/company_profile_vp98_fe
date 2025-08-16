@@ -1,12 +1,5 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
 import ButtonProjects from "./ButtonProjects"
-
-// Import Swiper styles
-import 'swiper/css';
-
-// Import custom styles
 import './GroupButtonProjects.css';
-
 
 export default function GroupButtonProjects(){
     const buttonsData = [
@@ -25,35 +18,15 @@ export default function GroupButtonProjects(){
                 ))}
             </div>
 
-            {/* Mobile & Tablet Layout - Carousel */}
-            <div className="md:hidden">
-                <Swiper
-                    spaceBetween={12}
-                    slidesPerView="auto"
-                    centeredSlides={false}
-                    freeMode={true}
-                    navigation={false}
-                    pagination={false}
-                    grabCursor={true}
-                    breakpoints={{
-                        320: {
-                            spaceBetween: 8,
-                        },
-                        480: {
-                            spaceBetween: 12,
-                        },
-                        640: {
-                            spaceBetween: 16,
-                        }
-                    }}
-                    className="button-carousel"
-                >
+            {/* Mobile & Tablet Layout - Scrollable horizontal dengan hidden overflow */}
+            <div className="md:hidden overflow-hidden">
+                <div className="flex gap-2 sm:gap-3 overflow-x-auto scrollbar-hide pb-2">
                     {buttonsData.map((button, index) => (
-                        <SwiperSlide key={index} style={{ width: 'auto' }}>
+                        <div key={index} className="flex-shrink-0">
                             <ButtonProjects text={button.text} />
-                        </SwiperSlide>
+                        </div>
                     ))}
-                </Swiper>
+                </div>
             </div>
         </div>
     )
