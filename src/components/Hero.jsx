@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <>
       {/* Hero Section */}
-      <div className="hero min-h-screen px-4 md:px-8">
+      <div className="hero py-20 px-4 md:px-8">
         <div className="hero-content text-center">
           <div className="flex flex-col items-center">
             <h1 className="text-3xl sm:text-4xl sm:mb-1 md:mb-1 md:text-5xl lg:text-6xl text-black mb-5 font-bold">
@@ -34,7 +34,7 @@ export default function Hero() {
       </div>
 
       {/* Stats Section */}
-      <div className="container mx-auto mb-10 px-4">
+      <div className="container mt-10 mx-auto mb-10 px-4">
         <div className="flex flex-row sm:flex-row flex-wrap items-center justify-center gap-8 sm:gap-[100px]">
           <div className="flex flex-col items-center space-y-1 sm:space-y-2">
             <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-black">
