@@ -13,8 +13,8 @@ export default function Hero() {
               <span className="relative bg-[#FF0000] text-white px-3 py-1 sm:px-4 sm:py-1 rounded-[15px] border-2 sm:border-4 border-dashed border-black inline-block">
                 Production 98
                 {/* Badge Let's Talk */}
-                <span className="absolute bottom-0 right-0 translate-x-full translate-y-1/2 bg-orange-500 text-white text-xs sm:text-sm px-2 py-1 rounded-full shadow-md whitespace-nowrap">
-                  Let’s Talk
+                <span className="absolute bottom-0 right-0 translate-x-1/2 sm:translate-x-full translate-y-1/2 bg-orange-500 text-white text-[10px] sm:text-sm px-2 py-1 rounded-full shadow-md whitespace-nowrap">
+                  Let's Talk
                 </span>
               </span>
             </h1>

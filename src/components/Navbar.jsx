@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><a className="navbar-link text-base font-semibold">Home</a></li>
+            <li><a className="navbar-link text-base font-semibold" href="">Home</a></li>
             <li><a className="navbar-link text-base font-semibold">About</a></li>
             <li><a className="navbar-link text-base font-semibold">Services</a></li>
             <li><a className="navbar-link text-base font-semibold">Team</a></li>

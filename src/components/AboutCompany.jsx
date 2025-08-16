@@ -1,7 +1,4 @@
-import { FaFacebookF } from "react-icons/fa6"
-import { FaInstagram } from "react-icons/fa"
-import { FaTiktok } from "react-icons/fa"
-import { FaLinkedinIn } from "react-icons/fa"
+import { socialMediaData } from "../data/socialMediaData";
 
 export default function AboutCompany() {
   return (
@@ -22,32 +19,19 @@ export default function AboutCompany() {
           </p>
         </div>
         <div className="mt-4 md:mt-5 flex flex-row gap-2 md:gap-3">
-          <a
-            href="#"
-            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-gray-400 hover:bg-[#FF0000] transition-colors duration-300"
-          >
-            <FaFacebookF size={16} className="md:w-5 md:h-5" color="white" />
-          </a>
-          <a
-            href="#"
-            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-gray-400 hover:bg-[#FF0000] transition-colors duration-300"
-          >
-            <FaInstagram size={16} className="md:w-5 md:h-5" color="white" />
-          </a>
-          <a
-            href="#"
-            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-gray-400 hover:bg-[#FF0000] transition-colors duration-300"
-          >
-            <FaTiktok size={16} className="md:w-5 md:h-5" color="white" />
-          </a>
-          <a
-            href="#"
-            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-gray-400 hover:bg-[#FF0000] transition-colors duration-300"
-          >
-            <FaLinkedinIn size={16} className="md:w-5 md:h-5" color="white" />
-          </a>
+          {socialMediaData.map((social) => (
+            <a
+              key={social.id}
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-gray-400 hover:bg-[#FF0000] transition-colors duration-300"
+            >
+              <social.icon size={16} className="md:w-5 md:h-5" color="white" />
+            </a>
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
