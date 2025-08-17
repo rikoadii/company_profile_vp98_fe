@@ -11,7 +11,9 @@ function App() {
     <>
       <div className='home' id='home'>
       <Navbar />
-      <Hero />
+      <div className="pt-24 sm:pt-28 md:pt-32">
+        <Hero />
+      </div>
     </div>
       <About />
       <Team />

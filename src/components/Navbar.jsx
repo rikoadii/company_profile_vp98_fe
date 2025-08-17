@@ -10,8 +10,8 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full px-4 sm:px-8 md:px-12 lg:px-18 pt-8">
-      <div className="navbar bg-neutral-50 navbar-custom rounded-4xl relative">
+    <div className="fixed top-0 left-0 right-0 w-full px-4 sm:px-8 md:px-12 lg:px-18 pt-8 z-50 bg-transparent">
+      <div className="navbar bg-neutral-50 navbar-custom rounded-4xl relative shadow-lg">
         <div className="navbar-start">
           <img src={logo} alt="Victory Production" className="h-16 w-auto" />
         </div>
