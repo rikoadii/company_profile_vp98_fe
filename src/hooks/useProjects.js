@@ -9,7 +9,7 @@ const useProjects = () => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://127.0.0.1:8000/api/projects');
+        const response = await fetch('http://admin.victoryproduction98/api/projects');
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -27,7 +27,7 @@ const useProjects = () => {
             // Handle image path - check if it's already a full URL or needs base URL
             image: project.image.startsWith('http') 
               ? project.image 
-              : `http://127.0.0.1:8000/storage/${project.image}`,
+              : `http://admin.victoryproduction98/storage/${project.image}`,
             category: project.category.name_category,
             category_id: project.category_projects, // Add category ID for filtering
             isMain: project.isMain === 1,

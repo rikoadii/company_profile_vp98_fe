@@ -9,7 +9,7 @@ const useTeams = () => {
     const fetchTeams = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://127.0.0.1:8000/api/teams');
+        const response = await fetch('http://admin.victoryproduction98/api/teams');
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -26,7 +26,7 @@ const useTeams = () => {
             // Handle image path - check if it's already a full URL or needs base URL
             image: team.profile.startsWith('http') 
               ? team.profile 
-              : `http://127.0.0.1:8000/storage/${team.profile}`
+              : `http://admin.victoryproduction98/storage/${team.profile}`
           }));
           
           setTeams(transformedTeams);
