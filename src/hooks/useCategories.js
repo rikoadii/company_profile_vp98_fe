@@ -9,7 +9,7 @@ const useCategories = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://admin.victoryproduction98/api/categories');
+        const response = await fetch('https://admin.victoryproduction98.com/api/categories');
         
         if (!response.ok) {
           // Fallback to static categories if API fails

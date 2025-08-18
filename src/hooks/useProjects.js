@@ -9,7 +9,7 @@ const useProjects = () => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://admin.victoryproduction98/api/projects');
+        const response = await fetch('https://admin.victoryproduction98.com/api/projects');
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

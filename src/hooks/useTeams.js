@@ -9,7 +9,7 @@ const useTeams = () => {
     const fetchTeams = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://admin.victoryproduction98/api/teams');
+        const response = await fetch('https://admin.victoryproduction98.com/api/teams');
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
