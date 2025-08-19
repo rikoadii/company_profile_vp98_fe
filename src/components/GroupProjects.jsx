@@ -24,24 +24,104 @@ export default function GroupProjects({ projects = [] }) {
     )
   }
 
-  // Split projects into 2 sections of 5 each
-  const section1 = projects.slice(0, 5); // Projects 1-5
-  const section2 = projects.slice(5, 10); // Projects 6-10
+  // Function to create dynamic sections based on large projects
+  const createDynamicSections = (allProjects) => {
+    const sections = [];
+    const largeProjects = allProjects.filter(project => project.isMain === true);
+    const smallProjects = allProjects.filter(project => project.isMain !== true);
+    
+    let smallProjectIndex = 0;
+    let largeProjectIndex = 0;
+    
+    // Process large projects one by one
+    while (largeProjectIndex < largeProjects.length) {
+      const currentLarge = largeProjects[largeProjectIndex];
+      
+      // Get up to 4 small projects for this section
+      const availableSmallProjects = smallProjects.slice(smallProjectIndex, smallProjectIndex + 4);
+      
+      // Check if this is the last large project and if it would be alone
+      const isLastLarge = largeProjectIndex === largeProjects.length - 1;
+      const nextLarge = largeProjects[largeProjectIndex + 1];
+      
+      // If this is the second-to-last large project and the next one would be alone
+      if (!isLastLarge && nextLarge && availableSmallProjects.length < 4) {
+        const nextAvailableSmall = smallProjects.slice(smallProjectIndex + availableSmallProjects.length, smallProjectIndex + availableSmallProjects.length + 4);
+        
+        // If the next large project would have no small projects, combine them
+        if (nextAvailableSmall.length === 0) {
+          sections.push({
+            largeProjects: [currentLarge, nextLarge],
+            smallProjects: availableSmallProjects,
+            type: 'double-large'
+          });
+          largeProjectIndex += 2; // Skip the next large project
+        } else {
+          sections.push({
+            largeProjects: [currentLarge],
+            smallProjects: availableSmallProjects,
+            type: 'normal'
+          });
+          largeProjectIndex += 1;
+        }
+      } else {
+        sections.push({
+          largeProjects: [currentLarge],
+          smallProjects: availableSmallProjects,
+          type: 'normal'
+        });
+        largeProjectIndex += 1;
+      }
+      
+      smallProjectIndex += availableSmallProjects.length;
+    }
+    
+    // If there are remaining small projects without large projects, create a section for them
+    if (smallProjectIndex < smallProjects.length) {
+      const remainingSmall = smallProjects.slice(smallProjectIndex);
+      sections.push({
+        largeProjects: [],
+        smallProjects: remainingSmall,
+        type: 'small-only'
+      });
+    }
+    
+    return sections;
+  };
 
-  // Function to render section based on isMain field
-  const renderSection = (sectionProjects, isLeftLarge = true) => {
-    if (sectionProjects.length === 0) return null;
-
-    // Find project with isMain: true in this section
-    const largeProject = sectionProjects.find(project => project.isMain === true);
-    // Get remaining projects for small grid
-    const smallProjects = sectionProjects.filter(project => project.isMain !== true);
-
-    // If no large project found, display all as equal size
+  // Function to render section based on section type
+  const renderSection = (section, sectionIndex) => {
+    const { largeProjects, smallProjects, type } = section;
+    const isLeftLarge = sectionIndex % 2 === 0; // Alternate large position
+    
+    if (type === 'double-large') {
+      // Render two large projects side by side
+      return (
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 h-[300px] sm:h-[350px] md:h-[422px]">
+          <ProjectImageLarge project={largeProjects[0]} />
+          <ProjectImageLarge project={largeProjects[1]} />
+        </div>
+      );
+    }
+    
+    if (type === 'small-only') {
+      // Render only small projects in a grid
+      return (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 h-[300px] sm:h-[350px] md:h-[422px]">
+          {smallProjects.slice(0, 4).map((project) => (
+            <ProjectImageSmall key={project.id} project={project} />
+          ))}
+        </div>
+      );
+    }
+    
+    // Normal section with 1 large + small projects
+    const largeProject = largeProjects[0];
+    
     if (!largeProject) {
       return (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 h-[300px] sm:h-[350px] md:h-[422px]">
-          {sectionProjects.slice(0, 4).map((project) => (
+          {smallProjects.slice(0, 4).map((project) => (
             <ProjectImageSmall key={project.id} project={project} />
           ))}
         </div>
@@ -75,16 +155,18 @@ export default function GroupProjects({ projects = [] }) {
     );
   };
 
+  const dynamicSections = createDynamicSections(projects);
+
   return (
     <div className="my-8 sm:my-12 md:my-16">
-        {/* Desktop Layout - Maintain 2 section structure */}
+        {/* Desktop Layout - Dynamic sections */}
         <div className="hidden lg:block">
             <div className="max-w-7xl mx-auto px-2 sm:px-4 pb-8 sm:pb-12 space-y-8 sm:space-y-12">
-                {/* Section 1: Check for isMain, default large on left */}
-                {section1.length > 0 && renderSection(section1, true)}
-
-                {/* Section 2: Check for isMain, default large on right */}
-                {section2.length > 0 && renderSection(section2, false)}
+                {dynamicSections.map((section, index) => (
+                  <div key={`section-${index}`}>
+                    {renderSection(section, index)}
+                  </div>
+                ))}
             </div>
         </div>
 

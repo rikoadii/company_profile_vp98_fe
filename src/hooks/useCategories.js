@@ -9,7 +9,7 @@ const useCategories = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://admin.victoryproduction98.com/api/categories');
+        const response = await fetch('http://localhost/be_vp98_php/api/categories.php');
         
         if (!response.ok) {
           // Fallback to static categories if API fails
@@ -29,8 +29,9 @@ const useCategories = () => {
         if (data.success && data.data) {
           // Transform API categories dan tambahkan "All Projects" sebagai default
           const apiCategories = data.data.map(category => ({
-            id: category.id,
-            name_category: category.name_category
+            id: category.id_categories,
+            name_category: category.categories_name,
+            project_count: category.project_count
           }));
           
           // Add "All Projects" sebagai option pertama (default)

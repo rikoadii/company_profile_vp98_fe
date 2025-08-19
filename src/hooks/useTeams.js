@@ -9,7 +9,7 @@ const useTeams = () => {
     const fetchTeams = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://admin.victoryproduction98.com/api/teams');
+        const response = await fetch('http://localhost/be_vp98_php/api/teams.php');
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -21,12 +21,12 @@ const useTeams = () => {
           // Transform API data to match component structure
           const transformedTeams = data.data.map(team => ({
             id: team.id,
-            name: team.nama,
+            name: team.name,
             jabatan: team.role,
             // Handle image path - check if it's already a full URL or needs base URL
-            image: team.profile.startsWith('http') 
+            image: team.profile.startsWith('https') 
               ? team.profile 
-              : `http://admin.victoryproduction98/storage/${team.profile}`
+              : `http://localhost/be_vp98_php/uploads/teams/${team.profile}`
           }));
           
           setTeams(transformedTeams);
