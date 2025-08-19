@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const useProjects = () => {
@@ -10,7 +10,7 @@ const useProjects = () => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost/be_vp98_php/api/projects.php');
+        const response = await fetch('https://admin.victoryproduction98.com/be-vp98/api/projects.php');
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -28,7 +28,7 @@ const useProjects = () => {
             // Handle image path - check if it's already a full URL or needs base URL
             image: project.image_project.startsWith('http') 
               ? project.image_project 
-              : `http://localhost/be_vp98_php/uploads/projects/${project.image_project}`,
+              : `https://admin.victoryproduction98.com/be-vp98/uploads/projects/${project.image_project}`,
             category: project.categories_name,
             category_id: project.id_categories, // Add category ID for filtering
             isMain: project.is_main === "1" || project.is_main === 1,

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const useTeams = () => {
   const [teams, setTeams] = useState([]);
@@ -9,7 +9,7 @@ const useTeams = () => {
     const fetchTeams = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost/be_vp98_php/api/teams.php');
+        const response = await fetch('https://admin.victoryproduction98.com/be-vp98/api/teams.php');
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -26,7 +26,7 @@ const useTeams = () => {
             // Handle image path - check if it's already a full URL or needs base URL
             image: team.profile.startsWith('https') 
               ? team.profile 
-              : `http://localhost/be_vp98_php/uploads/teams/${team.profile}`
+              : `https://admin.victoryproduction98.com/be-vp98/uploads/teams/${team.profile}`
           }));
           
           setTeams(transformedTeams);
