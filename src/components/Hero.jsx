@@ -26,9 +26,18 @@ export default function Hero() {
               <br className="hidden sm:block" />
               visual dan komunikasi efektif melalui strategi, event consultant, production, dan design dengan pendekatan inovatif.
             </p>
-            <button className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base bg-[#FF0000] text-white rounded-3xl mt-6 sm:mt-10 hover:bg-[#cc0000] transition-colors flex items-center gap-2">
+            <a 
+              href="#about" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#about').scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }}
+              className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base bg-[#FF0000] text-white rounded-3xl mt-6 sm:mt-10 hover:bg-[#cc0000] transition-colors flex items-center gap-2"
+            >
               Get in touch <IoIosArrowDropdown size={20} />
-            </button>
+            </a>
           </div>
         </div>
       </div>
