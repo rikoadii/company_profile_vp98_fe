@@ -1,6 +1,8 @@
-import { FaFacebookF } from "react-icons/fa";import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
+import logo from "../assets/logo_vp98.webp";
 export default function Footer() {
   return (
     <div>
@@ -10,7 +12,7 @@ export default function Footer() {
           {/* Logo di tengah */}
           <div className="flex justify-center">
             <div className="max-w-[150px] sm:max-w-[200px]">
-              <img src="../logo_vp98.png" alt="vp98" className="w-full h-auto"/>
+              <img src={logo} alt="Victory Production" className="w-full h-auto"/>
             </div>
           </div>
           
@@ -75,7 +77,9 @@ export default function Footer() {
       {/* Tablet & Desktop Layout */}
       <footer className="footer hidden md:flex md:flex-row md:justify-between md:items-start text-[#0A142F] px-18 pt-16 gap-8">
         <aside className="ml-3 w-95">
-          <img src="../logo_vp98.png" alt="vp98"/>
+          <div className="max-w-[200px]">
+            <img src={logo} alt="Victory Production" className="w-full h-auto"/>
+          </div>
         </aside>
         <nav>
           <h6 className="footer-title">Services</h6>
