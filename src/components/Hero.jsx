@@ -24,7 +24,7 @@ export default function Hero() {
             <p className="py-4 sm:py-6 text-black mt-4 sm:mt-5 text-[12px] text-sm sm:text-base md:text-lg max-w-2xl">
               CV. SEMBILAN DELAPAN adalah agensi kreatif terpadu yang menghadirkan solusi{" "}
               <br className="hidden sm:block" />
-              visual dan komunikasi efektif melalui strategi, produksi, dan inovasi kreatif.
+              visual dan komunikasi efektif melalui strategi, event consultant, production, dan design dengan pendekatan inovatif.
             </p>
             <button className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base bg-[#FF0000] text-white rounded-3xl mt-6 sm:mt-10 hover:bg-[#cc0000] transition-colors flex items-center gap-2">
               Get in touch <IoIosArrowDropdown size={20} />
@@ -34,7 +34,7 @@ export default function Hero() {
       </div>
 
       {/* Stats Section */}
-      <div className="container mt-10 mx-auto mb-10 px-4">
+      <div className="container mt-20 mx-auto px-4">
         <div className="flex flex-row sm:flex-row flex-wrap items-center justify-center gap-8 sm:gap-[100px]">
           <div className="flex flex-col items-center space-y-1 sm:space-y-2">
             <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-black">

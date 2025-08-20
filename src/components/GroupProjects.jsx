@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import ProjectImageLarge from "./ProjectImageLarge"
@@ -156,17 +157,29 @@ export default function GroupProjects({ projects = [] }) {
   };
 
   const dynamicSections = createDynamicSections(projects);
+  const [showAll, setShowAll] = useState(false);
+  const visibleSections = showAll ? dynamicSections : dynamicSections.slice(0, 2);
 
   return (
     <div className="my-8 sm:my-12 md:my-16">
         {/* Desktop Layout - Dynamic sections */}
         <div className="hidden lg:block">
             <div className="max-w-7xl mx-auto px-2 sm:px-4 pb-8 sm:pb-12 space-y-8 sm:space-y-12">
-                {dynamicSections.map((section, index) => (
+                {visibleSections.map((section, index) => (
                   <div key={`section-${index}`}>
                     {renderSection(section, index)}
                   </div>
                 ))}
+                {dynamicSections.length > 2 && (
+                  <div className="flex justify-center mt-8">
+                      <button
+                      onClick={() => setShowAll(!showAll)}
+                      className="px-6 py-3 bg-[#FF0000] text-white rounded-lg hover:bg-[#FF0000] transition-colors duration-200 shadow-md"
+                    >
+                      {showAll ? 'Show Less' : 'See More'}
+                    </button>
+                  </div>
+                )}
             </div>
         </div>
 

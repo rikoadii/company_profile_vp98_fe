@@ -29,7 +29,14 @@ export default function Navbar() {
         
         <div className="navbar-end">
           {/* Desktop Contact Button */}
-          <a className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base hidden lg:flex">Contact</a>
+          <a 
+            href="https://wa.me/6287865800582" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base hidden lg:flex"
+          >
+            Contact
+          </a>
           
           {/* Mobile Hamburger Button */}
           <button 
@@ -51,9 +58,16 @@ export default function Navbar() {
               <li><a className="navbar-link text-base font-semibold py-3" href="#about">About</a></li>
               <li><a className="navbar-link text-base font-semibold py-3" href="#services">Services</a></li>
               <li><a className="navbar-link text-base font-semibold py-3" href="#team">Team</a></li>
-              <li><a className="navbar-link text-base font-semibold py-3" href="#projects">Projects</a></li>
+              <li><a className="navbar-link ztext-base font-semibold py-3" href="#projects">Projects</a></li>
               <li className="pt-2">
-                <a className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base w-full">Contact</a>
+                <a 
+                  href="https://wa.me/6287865800582" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base w-full"
+                >
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
