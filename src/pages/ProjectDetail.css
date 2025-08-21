@@ -1,0 +1,32 @@
+.swiper-pagination-bullet {
+  background-color: #808080 !important;
+  opacity: 0.6 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #FF0000 !important;
+  opacity: 1 !important;
+}
+
+/* Optional: Style the active bullet to be slightly larger */
+.swiper-pagination-bullet-active {
+  transform: scale(1.2);
+}
+
+/* Navigation arrows styling */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #FF0000 !important;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 0.8;
+}
+
+/* Optional: Make arrows slightly smaller */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 24px !important;
+}

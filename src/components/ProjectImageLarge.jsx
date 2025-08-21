@@ -1,6 +1,16 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function ProjectImageLarge({ project }) {
+  const navigate = useNavigate();
+  
+  const handleClick = () => {
+    navigate(`/project/${project.id}`);
+  };
+
   return (
-    <div className="relative overflow-hidden rounded-lg group cursor-pointer h-[422px]">
+    <div 
+      onClick={handleClick}
+      className="relative overflow-hidden rounded-lg group cursor-pointer h-[422px]">
       <div className="relative w-full h-full">
         <img
           src={project.image}

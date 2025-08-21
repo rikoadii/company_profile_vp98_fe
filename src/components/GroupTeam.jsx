@@ -30,7 +30,7 @@ export default function GroupTeam() {
   }
 
   return (
-    <div className="container mx-auto px-2 sm:px-4 py-8 sm:py-12">
+    <div className="container mx-auto px-2 sm:px-4 py-8 sm:py-5">
       {/* Desktop Layout - Grid seperti sebelumnya */}
       <div className="hidden lg:block">
         <div className="space-y-6 max-w-6xl mx-auto">
