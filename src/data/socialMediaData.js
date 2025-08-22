@@ -3,12 +3,6 @@ import { MdEmail } from "react-icons/md";
 
 export const socialMediaData = [
     {
-        id: 1,
-        name: 'Facebook',
-        icon: FaFacebookF,
-        link: '',
-    },
-    {
         id: 2,
         name: 'Instagram',
         icon: FaInstagram,

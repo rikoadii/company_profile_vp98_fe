@@ -1,12 +1,14 @@
 import AboutCompany from "../components/AboutCompany"
 import Introduction from "../components/Introduction"
-import aboutImage from "../assets/about-v98.webp"
 import Event from "../components/Event"
 import WhoWeAre from "../components/WhoWeAre"
 import Marquee from "react-fast-marquee"
 import { collabData } from "../data/collabData.js"
+import useCenterImage from "../hooks/useCenterImage"
 
 export default function About() {
+  const { centerImage, loading, error, retryFetch } = useCenterImage();
+
   return (
     <div className="py-10 md:py-20 w-full" id="about">
       <div className="container mx-auto md:px-0">
@@ -19,12 +21,29 @@ export default function About() {
           </div>
         </div>
         <div className="relative mt-[-80px] md:mt-[-350px] lg:mt-[-467px] mb-8 md:mb-16 z-10">
-          <div className="mx-auto max-w-4xl px-4 md:px-0">
-            <img
-              src={aboutImage || "/placeholder.svg"}
-              alt="Team Photo - CV. SEMBILAN DELAPAN"
-              className="w-full h-auto rounded-tr-[15px] md:rounded-tr-[30px] rounded-bl-[15px] md:rounded-bl-[30px] shadow-lg object-cover"
-            />
+          <div className="mx-auto max-w-4xl px-0 md:px-4">
+            {loading ? (
+              <div className="w-full h-64 bg-gray-200 animate-pulse md:rounded-tr-[30px] md:rounded-bl-[30px]" />
+            ) : error ? (
+              <div className="w-full p-4 bg-red-100 text-red-600 md:rounded-tr-[30px] md:rounded-bl-[30px] flex flex-col items-center">
+                <p className="mb-2">{error}</p>
+                <button 
+                  onClick={retryFetch}
+                  className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+                >
+                  Retry
+                </button>
+              </div>
+            ) : (
+              <img
+                src={centerImage?.full_image_url || "/placeholder.svg"}
+                alt="Team Photo - CV. SEMBILAN DELAPAN"
+                className="w-full h-auto md:h-[467px] shadow-lg object-cover md:rounded-tr-[30px] md:rounded-bl-[30px]"
+                onError={(e) => {
+                  e.target.src = "/placeholder.svg";
+                }}
+              />
+            )}
           </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-4 md:gap-8">

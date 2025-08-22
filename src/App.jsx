@@ -34,7 +34,10 @@ function App() {
           path="/project/:id"
           element={
             <>
-              <ProjectDetail />
+              
+              <div>
+                <ProjectDetail />
+              </div>
             </>
           }
         />

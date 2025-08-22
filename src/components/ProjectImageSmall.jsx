@@ -4,6 +4,9 @@ export default function ProjectImageSmall({ project }) {
   const navigate = useNavigate();
   
   const handleClick = () => {
+    console.log('ProjectImageSmall - Navigating to project:', project);
+    console.log('ProjectImageSmall - Project ID:', project.id);
+    console.log('ProjectImageSmall - Navigate URL:', `/project/${project.id}`);
     navigate(`/project/${project.id}`);
   };
 

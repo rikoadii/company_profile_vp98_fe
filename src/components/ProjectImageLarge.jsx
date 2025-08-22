@@ -4,6 +4,9 @@ export default function ProjectImageLarge({ project }) {
   const navigate = useNavigate();
   
   const handleClick = () => {
+    console.log('ProjectImageLarge - Navigating to project:', project);
+    console.log('ProjectImageLarge - Project ID:', project.id);
+    console.log('ProjectImageLarge - Navigate URL:', `/project/${project.id}`);
     navigate(`/project/${project.id}`);
   };
 

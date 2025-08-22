@@ -1,12 +1,24 @@
 import logo from "../assets/logo_vp98.webp"
 import "../App.css"
 import { useState } from "react"
+import useContact from "../hooks/useContact"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { contact, loading } = useContact();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const getWhatsAppLink = () => {
+    if (loading || !contact) {
+      return "https://wa.me/6287865800582"; // default fallback number
+    }
+    // Remove any non-digit characters and ensure it starts with country code
+    const cleanNumber = contact.replace(/\D/g, '');
+    const whatsappNumber = cleanNumber.startsWith('62') ? cleanNumber : `62${cleanNumber.startsWith('0') ? cleanNumber.slice(1) : cleanNumber}`;
+    return `https://wa.me/${whatsappNumber}`;
   };
 
   return (
@@ -30,7 +42,7 @@ export default function Navbar() {
         <div className="navbar-end">
           {/* Desktop Contact Button */}
           <a 
-            href="https://wa.me/6287865800582" 
+            href={getWhatsAppLink()} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base hidden lg:flex"
@@ -61,7 +73,7 @@ export default function Navbar() {
               <li><a className="navbar-link ztext-base font-semibold py-3" href="#projects">Projects</a></li>
               <li className="pt-2">
                 <a 
-                  href="https://wa.me/6287865800582" 
+                  href={getWhatsAppLink()}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base w-full"
