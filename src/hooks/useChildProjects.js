@@ -22,8 +22,8 @@ const useChildProjects = (parentProjectId) => {
       try {
         setLoading(true);
         setError(null);
-        
-        const apiUrl = `http://localhost:8000/api/child_project.php?parent_project=${parentProjectId}`;
+
+        const apiUrl = `https://admin.victoryproduction98.com/api/child_project.php?parent_project=${parentProjectId}`;
         console.log('useChildProjects - Fetching from URL:', apiUrl);
         
         const response = await fetch(apiUrl);

@@ -13,9 +13,9 @@ export default function CardGroupService(){
             content: "Layanan produksi lengkap: panggung, backdrop, lighting, audiovisual, dan kebutuhan teknis lainnya siap mewujudkan acara yang memukau."
         },
         {
-            title: "3D Design",
-            secondTitle: "Visualisasi Realistis & Presisi",
-            content: "Pembuatan desain 3D untuk layout panggung, booth, dan area event lainnya. Membantu Anda melihat hasil akhir sebelum acara berlangsung."
+            title: "Design",
+            secondTitle: "Kreativitas & Inovasi Visual",
+            content: "Layanan desain komprehensif mulai dari konsep visual, branding event, hingga desain layout. Menciptakan identitas visual yang menarik dan sesuai dengan tema acara Anda."
         }
     ];
 

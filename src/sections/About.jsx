@@ -9,6 +9,11 @@ import useCenterImage from "../hooks/useCenterImage"
 export default function About() {
   const { centerImage, loading, error, retryFetch } = useCenterImage();
 
+  // Debug logging
+  console.log('About.jsx - Center Image:', centerImage);
+  console.log('About.jsx - Loading:', loading);
+  console.log('About.jsx - Error:', error);
+
   return (
     <div className="py-10 md:py-20 w-full" id="about">
       <div className="container mx-auto md:px-0">

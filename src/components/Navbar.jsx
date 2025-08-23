@@ -5,19 +5,33 @@ import useContact from "../hooks/useContact"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { contact, loading } = useContact();
+  const { contact, loading, error } = useContact();
+
+  // Debug logging
+  console.log('Navbar - Contact:', contact);
+  console.log('Navbar - Loading:', loading);
+  console.log('Navbar - Error:', error);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const getWhatsAppLink = () => {
+    console.log('Contact data:', contact);
+    console.log('Loading state:', loading);
+    
     if (loading || !contact) {
-      return "https://wa.me/6287865800582"; // default fallback number
+      console.log('Using fallback number');
+      return "https://wa.me/${whatsappNumber}"; // default fallback number
     }
+    
     // Remove any non-digit characters and ensure it starts with country code
     const cleanNumber = contact.replace(/\D/g, '');
+    console.log('Clean number from API:', cleanNumber);
+    
     const whatsappNumber = cleanNumber.startsWith('62') ? cleanNumber : `62${cleanNumber.startsWith('0') ? cleanNumber.slice(1) : cleanNumber}`;
+    console.log('Final WhatsApp number:', whatsappNumber);
+    
     return `https://wa.me/${whatsappNumber}`;
   };
 
