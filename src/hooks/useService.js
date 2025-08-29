@@ -15,7 +15,7 @@ const useService = (serviceId = null) => {
         setError(null);
 
         // API endpoint backend PHP kamu
-        let apiUrl = "https://admin.victoryproduction98.com/api/service.php";
+        let apiUrl = "https://admin.victoryproduction98.com/api/services.php";
         if (serviceId) {
           apiUrl += `?id=${serviceId}`;
         }
