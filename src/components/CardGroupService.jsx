@@ -1,37 +1,34 @@
 import CardService from "./CardService";
+import useService from "../hooks/useService"; // sesuaikan path hook kamu
 
-export default function CardGroupService(){
-    const servicesData = [
-        {
-            title: "Event Consultant",
-            secondTitle: "Strategi & Konsep Acara yang Terarah",
-            content: "Kami membantu merancang konsep acara dari awal termasuk tema, rundown, dan perencanaan teknis untuk memastikan acara Anda berjalan sukses."
-        },
-        {
-            title: "Production",
-            secondTitle: "Eksekusi Produksi Profesional",
-            content: "Layanan produksi lengkap: panggung, backdrop, lighting, audiovisual, dan kebutuhan teknis lainnya siap mewujudkan acara yang memukau."
-        },
-        {
-            title: "Design",
-            secondTitle: "Kreativitas & Inovasi Visual",
-            content: "Layanan desain komprehensif mulai dari konsep visual, branding event, hingga desain layout. Menciptakan identitas visual yang menarik dan sesuai dengan tema acara Anda."
-        }
-    ];
+export default function CardGroupService() {
+    const { services, loading, error } = useService(); // ambil semua service dari API
+
+    if (loading) {
+        return <p className="text-center text-gray-500">Loading services...</p>;
+    }
+
+    if (error) {
+        return <p className="text-center text-red-500">Error: {error}</p>;
+    }
+
+    if (!services || services.length === 0) {
+        return <p className="text-center text-gray-500">No services available</p>;
+    }
 
     return (
         <div className="w-full mt-6 sm:mt-8 md:mt-12">
             {/* Responsive Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                {servicesData.map((service, index) => (
+                {services.map((service) => (
                     <CardService
-                        key={index}
+                        key={service.id}
                         title={service.title}
-                        secondTitle={service.secondTitle}
-                        content={service.content}
+                        secondTitle={service.subtitle}     // subtitle dari API
+                        content={service.description}      // description dari API
                     />
                 ))}
             </div>
         </div>
-    )
+    );
 }
