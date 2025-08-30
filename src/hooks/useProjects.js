@@ -26,20 +26,17 @@ const useProjects = () => {
         console.log('useProjects - Raw response data:', data);
         
         if (data.success) {
-          console.log('useProjects - Raw API data:', data.data.slice(0, 2)); // Show first 2 items
-          
-          // Transform API data to match component structure
+          console.log('useProjects - Raw API data:', data.data.slice(0, 2)); 
           const transformedProjects = data.data.map(project => ({
             id: project.project_id,
             title: project.name_projects,
             location: project.location_projects,
             description: project.description_projects,
-            // Handle image path - check if it's already a full URL or needs base URL
             image: project.image_project.startsWith('http') 
               ? project.image_project 
               : `https://admin.victoryproduction98.com/uploads/projects/${project.image_project}`,
             category: project.categories_name,
-            category_id: project.id_categories, // Add category ID for filtering
+            category_id: project.id_categories,
             isMain: project.is_main === "1" || project.is_main === 1,
             size: (project.is_main === "1" || project.is_main === 1) ? 'large' : 'small'
           }));

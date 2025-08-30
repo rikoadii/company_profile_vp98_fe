@@ -1,4 +1,3 @@
-// src/hooks/useService.js
 import { useEffect, useState } from 'react';
 
 const useService = (serviceId = null) => {
@@ -14,7 +13,6 @@ const useService = (serviceId = null) => {
         setLoading(true);
         setError(null);
 
-        // API endpoint backend PHP kamu
         let apiUrl = "https://admin.victoryproduction98.com/api/services.php";
         if (serviceId) {
           apiUrl += `?id=${serviceId}`;
@@ -33,10 +31,8 @@ const useService = (serviceId = null) => {
 
         if (data.success) {
           if (serviceId) {
-            // Kalau ambil detail by ID
             setServiceDetail(data.data);
           } else {
-            // Kalau ambil semua
             setServices(data.data || []);
             setTotalRecords(data.total_records || 0);
           }
@@ -58,8 +54,8 @@ const useService = (serviceId = null) => {
   }, [serviceId]);
 
   return {
-    services,       // untuk list semua services
-    serviceDetail,  // untuk detail jika serviceId diberikan
+    services,
+    serviceDetail,
     loading,
     error,
     totalRecords,

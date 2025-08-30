@@ -1,4 +1,3 @@
-// Dynamic import images using object mapping
 const importImages = () => {
   const images = {};
   for (let i = 1; i <= 10; i++) {

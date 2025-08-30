@@ -11,7 +11,6 @@ const useCenterImage = () => {
   useEffect(() => {
     const fetchCenterImage = async () => {
       try {
-        // Add timestamp to prevent caching
         const response = await fetch(API_URL, {
           method: 'GET',
           headers: {
@@ -27,7 +26,6 @@ const useCenterImage = () => {
         console.log('Center Image API Response:', data);
         
         if (data.success && data.data) {
-          // Create image data with base URL + image_url
           const imageData = {
             ...data.data,
             full_image_url: `${BASE_URL}/${data.data.image_url}`
@@ -48,13 +46,10 @@ const useCenterImage = () => {
 
     fetchCenterImage();
 
-    // Cleanup function
     return () => {
-      // Any cleanup code if needed
     };
   }, []);
 
-  // Function to retry fetching
   const retryFetch = () => {
     setLoading(true);
     setError(null);

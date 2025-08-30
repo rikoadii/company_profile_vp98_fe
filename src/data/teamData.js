@@ -1,4 +1,3 @@
-// Import images directly using Vite's static asset handling
 import IthonkImg from '../assets/teams/ithonk.webp';
 import JamesImg from '../assets/teams/james.webp';
 import SatriaImg from '../assets/teams/satria.webp';

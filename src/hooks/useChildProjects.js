@@ -6,12 +6,10 @@ const useChildProjects = (parentProjectId) => {
   const [error, setError] = useState(null);
   const [totalRecords, setTotalRecords] = useState(0);
 
-  // Console log untuk debug
   console.log('useChildProjects - Received parentProjectId:', parentProjectId);
   console.log('useChildProjects - parentProjectId type:', typeof parentProjectId);
 
   useEffect(() => {
-    // Skip fetching if no parent project ID is provided
     if (!parentProjectId) {
       console.log('useChildProjects - No parentProjectId provided, skipping fetch');
       setLoading(false);
@@ -36,7 +34,6 @@ const useChildProjects = (parentProjectId) => {
         console.log('useChildProjects - API Response:', data);
         
         if (data.success) {
-          // Transform API data to match component structure
           const transformedChildProjects = data.data.map(childProject => ({
             id: childProject.id,
             parentId: childProject.id_parent_project,
@@ -44,7 +41,6 @@ const useChildProjects = (parentProjectId) => {
             parentTitle: childProject.parent_title,
             parentDescription: childProject.parent_description,
             imageUrl: childProject.image_url,
-            // Use full_image_url directly from API
             fullImageUrl: childProject.full_image_url
           }));
           
