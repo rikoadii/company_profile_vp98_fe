@@ -1,6 +1,7 @@
 import useTeams from '../hooks/useTeams';
 import CardTeam from './CardTeam';
 import ErrorMessage from './ErrorMessage';
+import ScrollAnimationWrapper from './ScrollAnimationWrapper';
 
 export default function GroupTeam() {
   const { teams, loading, error } = useTeams();
@@ -34,46 +35,70 @@ export default function GroupTeam() {
       <div className="hidden lg:block">
         <div className="space-y-6 max-w-6xl mx-auto">
           {/* Card pertama - paling atas */}
-          <div className="flex justify-center max-w-[200px] mx-auto">
-            
+          <ScrollAnimationWrapper animationType="scroll-scale">
+            <div className="flex justify-center max-w-[200px] mx-auto">
               <CardTeam key={teams[0]?.id} member={teams[0]} />
-            
-          </div>
+            </div>
+          </ScrollAnimationWrapper>
 
           {/* 3 card di tengah */}
           {teams.length > 1 && (
-            <div className="flex justify-center">
-              <div className="grid grid-cols-3 gap-8 max-w-4xl">
-                {teams.slice(1, 4).map((member) => (
-                  <CardTeam key={member.id} member={member} />
-                ))}
+            <ScrollAnimationWrapper animationType="scroll-fade-in" delay={0.2}>
+              <div className="flex justify-center">
+                <div className="grid grid-cols-3 gap-8 max-w-4xl">
+                  {teams.slice(1, 4).map((member, index) => (
+                    <ScrollAnimationWrapper 
+                      key={member.id}
+                      animationType="scroll-slide-left" 
+                      delay={0.3 + (index * 0.1)}
+                    >
+                      <CardTeam member={member} />
+                    </ScrollAnimationWrapper>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ScrollAnimationWrapper>
           )}
 
           {/* 2 card terakhir */}
           {teams.length > 4 && (
-            <div className="flex justify-center">
-              <div className="grid grid-cols-2 gap-8 max-w-xl">
-                {teams.slice(4, 6).map((member) => (
-                  <div key={member.id} className="max-w-[200px]">
-                    <CardTeam member={member} />
-                  </div>
-                ))}
+            <ScrollAnimationWrapper animationType="scroll-fade-in" delay={0.4}>
+              <div className="flex justify-center">
+                <div className="grid grid-cols-2 gap-8 max-w-xl">
+                  {teams.slice(4, 6).map((member, index) => (
+                    <ScrollAnimationWrapper 
+                      key={member.id}
+                      animationType="scroll-slide-right" 
+                      delay={0.5 + (index * 0.1)}
+                    >
+                      <div className="max-w-[200px]">
+                        <CardTeam member={member} />
+                      </div>
+                    </ScrollAnimationWrapper>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ScrollAnimationWrapper>
           )}
         </div>
       </div>
 
       {/* Mobile & Tablet Layout - Grid 2 Kolom */}
-      <div className="lg:hidden">
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
-          {teams.map((member) => (
-            <CardTeam key={member.id} member={member} />
-          ))}
+      <ScrollAnimationWrapper animationType="scroll-fade-in">
+        <div className="lg:hidden">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
+            {teams.map((member, index) => (
+              <ScrollAnimationWrapper 
+                key={member.id}
+                animationType="scroll-scale" 
+                delay={index * 0.1}
+              >
+                <CardTeam member={member} />
+              </ScrollAnimationWrapper>
+            ))}
+          </div>
         </div>
-      </div>
+      </ScrollAnimationWrapper>
     </div>
   );
 }

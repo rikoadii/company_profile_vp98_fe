@@ -1,5 +1,4 @@
 import { IoIosArrowDropdown } from "react-icons/io";
-import { TbCircleArrowUpLeftFilled } from "react-icons/tb";
 
 export default function Hero() {
   return (
@@ -8,9 +7,9 @@ export default function Hero() {
       <div className="hero py-20 px-4 md:px-8">
         <div className="hero-content text-center">
           <div className="flex flex-col items-center">
-            <h1 className="text-3xl sm:text-4xl sm:mb-1 md:mb-1 md:text-5xl lg:text-6xl text-black mb-5 font-bold">
+            <h1 className="text-3xl sm:text-4xl sm:mb-1 md:mb-1 md:text-5xl lg:text-6xl text-black mb-5 font-bold animate-fade-in">
               Victory{" "}
-              <span className="relative bg-[#FF0000] text-white px-3 py-1 sm:px-4 sm:py-1 rounded-[15px] border-2 sm:border-4 border-dashed border-black inline-block">
+              <span className="relative bg-[#FF0000] text-white px-3 py-1 sm:px-4 sm:py-1 rounded-[15px] border-2 sm:border-4 border-dashed border-black inline-block animate-scale-in animate-delay-200">
                 Production 98
                 {/* Badge Let's Talk */}
                 <span className="absolute bottom-0 right-0 translate-x-1/2 sm:translate-x-full translate-y-1/2 bg-orange-500 text-white text-[10px] sm:text-sm px-2 py-1 rounded-full shadow-md whitespace-nowrap">
@@ -18,10 +17,10 @@ export default function Hero() {
                 </span>
               </span>
             </h1>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-black mt-3 font-bold">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-black mt-3 font-bold animate-fade-in animate-delay-100">
               Agency Creative Company
             </h1>
-            <p className="py-4 sm:py-6 text-black mt-4 sm:mt-5 text-[12px] text-sm sm:text-base md:text-lg max-w-2xl">
+            <p className="py-4 sm:py-6 text-black mt-4 sm:mt-5 text-[12px] text-sm sm:text-base md:text-lg max-w-2xl animate-fade-in animate-delay-300">
               CV. SEMBILAN DELAPAN adalah agensi kreatif terpadu yang menghadirkan solusi{" "}
               <br className="hidden sm:block" />
               visual dan komunikasi efektif melalui strategi, event consultant, production, dan design dengan pendekatan inovatif.
@@ -34,7 +33,7 @@ export default function Hero() {
                   behavior: 'smooth'
                 });
               }}
-              className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base bg-[#FF0000] text-white rounded-3xl mt-6 sm:mt-10 hover:bg-[#cc0000] transition-colors flex items-center gap-2"
+              className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base bg-[#FF0000] text-white rounded-3xl mt-6 sm:mt-10 hover:bg-[#cc0000] transition-colors flex items-center gap-2 animate-scale-in animate-delay-400 hover-lift btn-press"
             >
               Get in touch <IoIosArrowDropdown size={20} />
             </a>

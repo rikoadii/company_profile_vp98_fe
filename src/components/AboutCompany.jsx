@@ -1,22 +1,29 @@
 import { socialMediaData } from "../data/socialMediaData";
+import ScrollAnimationWrapper from "./ScrollAnimationWrapper";
 
 export default function AboutCompany() {
   return (
     <div className="py-6 md:py-12">
       <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-5xl">
-        <div className="mb-6 md:mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">About Company</h2>
-        </div>
+        <ScrollAnimationWrapper animation="scroll-slide-left">
+          <div className="mb-6 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">About Company</h2>
+          </div>
+        </ScrollAnimationWrapper>
         <div className="space-y-4 md:space-y-6">
-          <p className="text-sm md:text-base lg:text-lg text-gray-700 text-justify leading-relaxed">
-            CV. SEMBILAN DELAPAN adalah Agensi kreatif profesional yang menyediakan layanan terpadu. Kami menawarkan
-            layanan yang mencakup perencanaan strategis, arah kreatif, produksi, manajemen acara, serta pengembangan
-            interaktif.
-          </p>
-          <p className="text-sm md:text-base lg:text-lg text-gray-700 text-justify leading-relaxed">
-            CV. SEMBILAN DELAPAN tidak hanya menghadirkan pengalaman visual yang luar biasa, tetapi juga selalu mencari
-            cara kreatif untuk menyampaikan pesan Anda secara efektif kepada pelanggan.
-          </p>
+          <ScrollAnimationWrapper animation="scroll-fade-in" delay={200}>
+            <p className="text-sm md:text-base lg:text-lg text-gray-700 text-justify leading-relaxed">
+              CV. SEMBILAN DELAPAN adalah Agensi kreatif profesional yang menyediakan layanan terpadu. Kami menawarkan
+              layanan yang mencakup perencanaan strategis, arah kreatif, produksi, manajemen acara, serta pengembangan
+              interaktif.
+            </p>
+          </ScrollAnimationWrapper>
+          <ScrollAnimationWrapper animation="scroll-fade-in" delay={400}>
+            <p className="text-sm md:text-base lg:text-lg text-gray-700 text-justify leading-relaxed">
+              CV. SEMBILAN DELAPAN tidak hanya menghadirkan pengalaman visual yang luar biasa, tetapi juga selalu mencari
+              cara kreatif untuk menyampaikan pesan Anda secara efektif kepada pelanggan.
+            </p>
+          </ScrollAnimationWrapper>
         </div>
         <div className="mt-4 md:mt-5 flex flex-row gap-2 md:gap-3">
           {socialMediaData.map((social) => (

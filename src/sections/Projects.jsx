@@ -2,6 +2,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import GroupButtonProjects from "../components/GroupButtonProjects";
 import GroupProjects from "../components/GroupProjects";
 import HeaderSection from "../components/HeaderSection";
+import ScrollAnimationWrapper from "../components/ScrollAnimationWrapper";
 import useCategories from "../hooks/useCategories";
 import useProjectFilter from "../hooks/useProjectFilter";
 import useProjects from "../hooks/useProjects";
@@ -17,15 +18,19 @@ export default function Projects() {
 
     return (
         <div className="w-full mt-8 sm:mt-12 md:mt-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-18 bg-white" id="projects">
-            <HeaderSection 
-                title="Recent Projects" 
-                subtitle="Victory Production"
-            />
-            <div className="mt-6 sm:mt-8 md:mt-10">
-                <GroupButtonProjects 
-                    selectedCategory={selectedCategory}
-                    onCategoryChange={setSelectedCategory}
+            <ScrollAnimationWrapper animation="scroll-fade-in">
+                <HeaderSection 
+                    title="Recent Projects" 
+                    subtitle="Victory Production"
                 />
+            </ScrollAnimationWrapper>
+            <div className="mt-6 sm:mt-8 md:mt-10">
+                <ScrollAnimationWrapper animation="scroll-slide-left" delay={200}>
+                    <GroupButtonProjects 
+                        selectedCategory={selectedCategory}
+                        onCategoryChange={setSelectedCategory}
+                    />
+                </ScrollAnimationWrapper>
             </div>
             
             {/* Remove loading spinner */}
@@ -43,7 +48,9 @@ export default function Projects() {
                 <>
                     {/* Show filtered projects or empty state */}
                     {filteredProjects.length > 0 ? (
-                        <GroupProjects projects={filteredProjects} />
+                        <ScrollAnimationWrapper animation="scroll-fade-in" delay={400}>
+                            <GroupProjects projects={filteredProjects} />
+                        </ScrollAnimationWrapper>
                     ) : (
                         <div className="my-16">
                             <div className="max-w-7xl mx-auto px-4 pb-12 text-center">

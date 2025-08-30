@@ -1,8 +1,7 @@
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa";
 import logo from "../assets/logo_vp98.webp";
+import ScrollAnimationWrapper from "../components/ScrollAnimationWrapper";
+
 export default function Footer() {
   return (
     <div>
@@ -10,13 +9,16 @@ export default function Footer() {
       <footer className="md:hidden text-[#0A142F] px-4 sm:px-6 pt-8 sm:pt-12">
         <div className="space-y-6 sm:space-y-8">
           {/* Logo di tengah */}
-          <div className="flex justify-center">
-            <div className="max-w-[150px] sm:max-w-[200px]">
-              <img src={logo} alt="Victory Production" className="w-full h-auto"/>
+          <ScrollAnimationWrapper animation="scroll-scale">
+            <div className="flex justify-center">
+              <div className="max-w-[150px] sm:max-w-[200px]">
+                <img src={logo} alt="Victory Production" className="w-full h-auto"/>
+              </div>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
           
           {/* Navigation dalam 2 kolom */}
+          <ScrollAnimationWrapper animation="scroll-fade-in" delay={200}>
           <div className="grid grid-cols-2 gap-4 sm:gap-6 text-center">
             {/* Kolom 1 */}
             <div className="space-y-4 sm:space-y-6">
@@ -71,6 +73,7 @@ export default function Footer() {
               </nav>
             </div>
           </div>
+          </ScrollAnimationWrapper>
         </div>
       </footer>
 

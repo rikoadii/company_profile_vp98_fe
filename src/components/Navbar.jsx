@@ -36,16 +36,16 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-[9999]">
+    <nav className="fixed top-4 left-4 right-4 z-[9999] animate-slide-in-right">
       <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200/50 mx-auto max-w-7xl">
         <div className="flex justify-between items-center px-6 lg:px-8 py-3">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 animate-scale-in animate-delay-200">
             <img src={logo} alt="Victory Production" className="h-12 w-auto" />
           </div>
           
           {/* Desktop Menu - More compact spacing */}
-          <div className="hidden lg:flex items-center bg-gray-50/80 rounded-xl px-2 py-1">
+          <div className="hidden lg:flex items-center bg-gray-50/80 rounded-xl px-2 py-1 animate-fade-in animate-delay-300">,
             <a className="px-4 py-2.5 text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 font-medium text-sm" href="#home">Home</a>
             <a className="px-4 py-2.5 text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 font-medium text-sm" href="#about">About</a>
             <a className="px-4 py-2.5 text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 font-medium text-sm" href="#services">Services</a>

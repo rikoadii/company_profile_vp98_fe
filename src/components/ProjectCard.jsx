@@ -11,8 +11,8 @@ export default function ProjectCard({ project, priority = false }) {
   return (
     <div 
       onClick={handleClick}
-      className="relative overflow-hidden rounded-lg group cursor-pointer h-[280px] sm:h-[320px]">
-      <div className="relative w-full h-full">
+      className="relative overflow-hidden rounded-lg group cursor-pointer h-[280px] sm:h-[320px] hover-lift smooth-transition">
+      <div className="relative w-full h-full">,
         <OptimizedImage
           src={project.image}
           alt={project.title}

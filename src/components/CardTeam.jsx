@@ -11,7 +11,7 @@ export default function CardTeam({ member }) {
   }
 
   return (
-      <div className="card bg-white w-full max-w-[240px] sm:max-w-[260px] mx-auto border-4 sm:border-6 border-white rounded-3xl sm:rounded-4xl shadow-md sm:shadow-lg md:shadow-[0px_4px_75px_-16px_rgba(0,0,0,0.102)]">
+      <div className="card bg-white w-full max-w-[240px] sm:max-w-[260px] mx-auto border-4 sm:border-6 border-white rounded-3xl sm:rounded-4xl shadow-md sm:shadow-lg md:shadow-[0px_4px_75px_-16px_rgba(0,0,0,0.102)] hover-lift smooth-transition">
   <figure className="px-2 sm:px-3 pt-2 sm:pt-3 h-32 sm:h-40 md:h-48">
     <img
       src={member.image}

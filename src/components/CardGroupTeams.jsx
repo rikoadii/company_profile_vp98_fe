@@ -1,5 +1,6 @@
-import CardTeam from './CardTeam';
 import { teamMembers } from '../data/teamData';
+import CardTeam from './CardTeam';
+import ScrollAnimationWrapper from './ScrollAnimationWrapper';
 
 export default function CardGroupTeams() {
   // Split team members into groups
@@ -11,27 +12,45 @@ export default function CardGroupTeams() {
     <div className="container mx-auto px-4 py-12">
       <div className="space-y-6 max-w-6xl mx-auto">
         {/* Card pertama - paling atas */}
-        <div className="flex justify-center">
-          <CardTeam key={firstMember.id} member={firstMember} />
-        </div>
+        <ScrollAnimationWrapper animationType="scroll-scale">
+          <div className="flex justify-center">
+            <CardTeam key={firstMember.id} member={firstMember} />
+          </div>
+        </ScrollAnimationWrapper>
 
         {/* 3 card di tengah */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl">
-            {middleMembers.map((member) => (
-              <CardTeam key={member.id} member={member} />
-            ))}
+        <ScrollAnimationWrapper animationType="scroll-fade-in" delay={0.2}>
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl">
+              {middleMembers.map((member, index) => (
+                <ScrollAnimationWrapper 
+                  key={member.id}
+                  animationType="scroll-slide-left" 
+                  delay={0.3 + (index * 0.1)}
+                >
+                  <CardTeam member={member} />
+                </ScrollAnimationWrapper>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollAnimationWrapper>
 
         {/* 2 card terakhir */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
-            {lastMembers.map((member) => (
-              <CardTeam key={member.id} member={member} />
-            ))}
+        <ScrollAnimationWrapper animationType="scroll-fade-in" delay={0.4}>
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+              {lastMembers.map((member, index) => (
+                <ScrollAnimationWrapper 
+                  key={member.id}
+                  animationType="scroll-slide-right" 
+                  delay={0.5 + (index * 0.1)}
+                >
+                  <CardTeam member={member} />
+                </ScrollAnimationWrapper>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollAnimationWrapper>
       </div>
     </div>
   );

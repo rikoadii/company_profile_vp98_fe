@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import ProjectCard from "./ProjectCard";
 import ProjectImageLarge from "./ProjectImageLarge";
 import ProjectImageSmall from "./ProjectImageSmall";
+import ScrollAnimationWrapper from './ScrollAnimationWrapper';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -168,70 +169,78 @@ export default function GroupProjects({ projects = [] }) {
         <div className="hidden lg:block">
             <div className="max-w-7xl mx-auto px-2 sm:px-4 pb-8 sm:pb-12 space-y-8 sm:space-y-12">
                 {visibleSections.map((section, index) => (
-                  <div key={`section-${index}`}>
-                    {renderSection(section, index)}
-                  </div>
+                  <ScrollAnimationWrapper 
+                    key={`section-${index}`}
+                    animationType="scroll-fade-in" 
+                    delay={index * 0.2}
+                  >
+                    <div>
+                      {renderSection(section, index)}
+                    </div>
+                  </ScrollAnimationWrapper>
                 ))}
                 {dynamicSections.length > 2 && (
-                  <div className="flex justify-center mt-8">
-                      <button
-                      onClick={() => setShowAll(!showAll)}
-                      className="px-6 py-3 bg-[#FF0000] text-white rounded-lg hover:bg-[#FF0000] transition-colors duration-200 shadow-md"
-                    >
-                      {showAll ? 'Show Less' : 'See More'}
-                    </button>
-                  </div>
+                  <ScrollAnimationWrapper animationType="scroll-scale" delay={0.3}>
+                    <div className="flex justify-center mt-8">
+                        <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="px-6 py-3 bg-[#FF0000] text-white rounded-lg hover:bg-[#FF0000] transition-colors duration-200 shadow-md"
+                      >
+                        {showAll ? 'Show Less' : 'See More'}
+                      </button>
+                    </div>
+                  </ScrollAnimationWrapper>
                 )}
             </div>
-        </div>
-
-        {/* Mobile & Tablet Layout - Carousel */}
-        <div className="lg:hidden px-2 sm:px-4">
-            <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={16}
-                slidesPerView={1}
-                centeredSlides={true}
-                navigation={true}
-                pagination={{ 
-                    clickable: true,
-                    dynamicBullets: true 
-                }}
-                autoplay={{
-                    delay: 3500,
-                    disableOnInteraction: false,
-                }}
-                breakpoints={{
-                    380: {
-                        slidesPerView: 1.2,
-                        spaceBetween: 16,
-                    },
-                    480: {
-                        slidesPerView: 1.5,
-                        spaceBetween: 20,
-                    },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 24,
-                        centeredSlides: false,
-                    },
-                    768: {
-                        slidesPerView: 2.3,
-                        spaceBetween: 24,
-                    }
-                }}
-                className="projects-carousel"
-            >
-                {projects.map((project, index) => (
-                    <SwiperSlide key={project.id}>
-                        <ProjectCard 
-                          project={project} 
-                          priority={index < 2} // Priority for first 2 projects
-                        />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+        </div>        {/* Mobile & Tablet Layout - Carousel */}
+        <ScrollAnimationWrapper animationType="scroll-slide-left">
+          <div className="lg:hidden px-2 sm:px-4">
+              <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  spaceBetween={16}
+                  slidesPerView={1}
+                  centeredSlides={true}
+                  navigation={true}
+                  pagination={{ 
+                      clickable: true,
+                      dynamicBullets: true 
+                  }}
+                  autoplay={{
+                      delay: 3500,
+                      disableOnInteraction: false,
+                  }}
+                  breakpoints={{
+                      380: {
+                          slidesPerView: 1.2,
+                          spaceBetween: 16,
+                      },
+                      480: {
+                          slidesPerView: 1.5,
+                          spaceBetween: 20,
+                      },
+                      640: {
+                          slidesPerView: 2,
+                          spaceBetween: 24,
+                          centeredSlides: false,
+                      },
+                      768: {
+                          slidesPerView: 2.3,
+                          spaceBetween: 24,
+                      }
+                  }}
+                  className="projects-carousel"
+              >
+                  {projects.map((project, index) => (
+                      <SwiperSlide key={project.id}>
+                          <ProjectCard 
+                            project={project} 
+                            priority={index < 2} // Priority for first 2 projects
+                          />
+                      </SwiperSlide>
+                  ))}
+              </Swiper>
+          </div>
+        </ScrollAnimationWrapper>
     </div>
 )
 }
