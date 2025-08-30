@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-
+/* Critical CSS */
 body {
   font-family: 'Archivo', sans-serif;
   margin: 0;
@@ -9,8 +9,10 @@ body {
   max-width: 100vw;
   background-color: #FFFFFF;
   overflow-x: hidden;
+  font-display: swap;
 }
 
+/* Preload critical images */
 .home {
   background-color: #FFFFFF;
   background-image: url('./assets/Illustration.webp');
@@ -20,14 +22,16 @@ body {
   opacity: 1;
   position: relative;
   overflow-x: hidden;
+  will-change: transform;
 }
 
 .bg-intro {
   background-image: linear-gradient(to bottom, #990000, #FF0000), url('./assets/bg-introduction.webp');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center ;
+  background-position: center;
   position: relative;
+  will-change: transform;
 }
 .bg-event {
   background-image: linear-gradient(to bottom, #FF0000, #990000), url('./assets/bg-introduction.png');

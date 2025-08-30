@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import ProjectImageLarge from "./ProjectImageLarge"
-import ProjectImageSmall from "./ProjectImageSmall"
-import ProjectCard from "./ProjectCard"
+import ProjectCard from "./ProjectCard";
+import ProjectImageLarge from "./ProjectImageLarge";
+import ProjectImageSmall from "./ProjectImageSmall";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -14,6 +14,8 @@ import 'swiper/css/pagination';
 import './GroupProjects.css';
 
 export default function GroupProjects({ projects = [] }) {
+  // Remove loading prop and all loading-related code
+  
   // Jika tidak ada projects, return empty atau fallback
   if (!projects || projects.length === 0) {
     return (
@@ -220,9 +222,12 @@ export default function GroupProjects({ projects = [] }) {
                 }}
                 className="projects-carousel"
             >
-                {projects.map((project) => (
+                {projects.map((project, index) => (
                     <SwiperSlide key={project.id}>
-                        <ProjectCard project={project} />
+                        <ProjectCard 
+                          project={project} 
+                          priority={index < 2} // Priority for first 2 projects
+                        />
                     </SwiperSlide>
                 ))}
             </Swiper>

@@ -1,18 +1,18 @@
-import HeaderSection from "../components/HeaderSection";
+import ErrorMessage from "../components/ErrorMessage";
 import GroupButtonProjects from "../components/GroupButtonProjects";
 import GroupProjects from "../components/GroupProjects";
-import LoadingSpinner from "../components/LoadingSpinner";
-import ErrorMessage from "../components/ErrorMessage";
-import useProjects from "../hooks/useProjects";
-import useProjectFilter from "../hooks/useProjectFilter";
+import HeaderSection from "../components/HeaderSection";
 import useCategories from "../hooks/useCategories";
+import useProjectFilter from "../hooks/useProjectFilter";
+import useProjects from "../hooks/useProjects";
 
 export default function Projects() {
     const { projects, loading: projectsLoading, error: projectsError } = useProjects();
     const { categories, loading: categoriesLoading } = useCategories();
     const { selectedCategory, setSelectedCategory, filteredProjects } = useProjectFilter(projects, categories);
 
-    const loading = projectsLoading || categoriesLoading;
+    // Remove loading states
+    // const loading = projectsLoading || categoriesLoading;
     const error = projectsError;
 
     return (
@@ -28,7 +28,8 @@ export default function Projects() {
                 />
             </div>
             
-            {loading && <LoadingSpinner />}
+            {/* Remove loading spinner */}
+            {/* {loading && <LoadingSpinner />} */}
             
             {error && (
                 <ErrorMessage 
@@ -37,7 +38,8 @@ export default function Projects() {
                 />
             )}
             
-            {!loading && !error && (
+            {/* Remove loading condition, always show projects */}
+            {!error && (
                 <>
                     {/* Show filtered projects or empty state */}
                     {filteredProjects.length > 0 ? (

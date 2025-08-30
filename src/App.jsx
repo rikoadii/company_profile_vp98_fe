@@ -1,47 +1,45 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Projects from './sections/Projects';
+import { lazy, Suspense } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Hero from './components/Hero';
-import Services from './sections/Services';
-import About from './sections/About';
-import Team from './sections/Team';
-import Footer from './sections/Footer';
-import ProjectDetail from './pages/ProjectDetail';
+import Navbar from './components/Navbar';
+
+// Lazy load non-critical components
+const Projects = lazy(() => import('./sections/Projects'));
+const Services = lazy(() => import('./sections/Services'));
+const About = lazy(() => import('./sections/About'));
+const Team = lazy(() => import('./sections/Team'));
+const Footer = lazy(() => import('./sections/Footer'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route 
-          path="/" 
-          element={
-            <>
-              <div className='home' id='home'>
+      <Suspense fallback={<div className="min-h-screen"></div>}>
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <>
                 <Navbar />
-                <div className="pt-24 sm:pt-28 md:pt-32">
-                  <Hero />
+                <div className='home' id='home'>
+                  <div className="pt-24 sm:pt-28 md:pt-32">
+                    <Hero />
+                  </div>
                 </div>
-              </div>
-              <About />
-              <Team />
-              <Services />
-              <Projects />
-              <Footer />
-            </>
-          } 
-        />
-        <Route
-          path="/project/:id"
-          element={
-            <>
-              
-              <div>
-                <ProjectDetail />
-              </div>
-            </>
-          }
-        />
-      </Routes>
+                <About />
+                <Team />
+                <Services />
+                <Projects />
+                <Footer />
+              </>
+            } 
+          />
+          <Route
+            path="/project/:id"
+            element={<ProjectDetail />}
+          />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

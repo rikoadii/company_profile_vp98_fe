@@ -1,17 +1,29 @@
 import { useEffect, useState } from 'react';
 
 const useCategories = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Set default categories immediately
+  const [categories, setCategories] = useState([
+    { id: 'all', name_category: 'All Projects' },
+    { id: 'corporate', name_category: 'Corporate' },
+    { id: 'entertainment', name_category: 'Entertainment' },
+    { id: 'community', name_category: 'Community' }
+  ]);
+  const [loading, setLoading] = useState(false); // Set to false to remove loading
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        setLoading(true);
-        const response = await fetch('https://admin.victoryproduction98.com/api/categories.php');
+        // setLoading(true); // Comment out loading state
+        setError(null); // Reset error state
+        
+        const apiUrl = 'https://admin.victoryproduction98.com/api/categories.php';
+        
+        // Use regular fetch instead of cached fetch temporarily
+        const response = await fetch(apiUrl);
         
         if (!response.ok) {
+          // Fallback to static categories if API fails
           const defaultCategories = [
             { id: 'all', name_category: 'All Projects' },
             { id: 'corporate', name_category: 'Corporate' },
@@ -42,6 +54,7 @@ const useCategories = () => {
           throw new Error(data.message || 'Failed to fetch categories');
         }
       } catch (err) {
+        // Fallback to static categories if API fails
         const defaultCategories = [
           { id: 'all', name_category: 'All Projects' },
           { id: 'corporate', name_category: 'Corporate' },
@@ -52,7 +65,7 @@ const useCategories = () => {
         setError(err.message);
         console.warn('Using fallback categories:', err);
       } finally {
-        setLoading(false);
+        // setLoading(false); // Comment out to keep loading always false
       }
     };
 

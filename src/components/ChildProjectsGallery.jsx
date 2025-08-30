@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import LoadingSpinner from './LoadingSpinner';
-import ErrorMessage from './ErrorMessage';
+import { useState } from 'react';
 import './ChildProjectsGallery.css';
+import ErrorMessage from './ErrorMessage';
 
 const ChildProjectsGallery = ({ childProjects, loading, error, totalRecords, projectTitle }) => {
   const [imageErrors, setImageErrors] = useState({});
@@ -30,7 +29,7 @@ const ChildProjectsGallery = ({ childProjects, loading, error, totalRecords, pro
               Project Gallery
             </h2>
           </div>
-          <LoadingSpinner />
+          <div className="text-center text-gray-500">Loading gallery...</div>
         </div>
       </div>
     );

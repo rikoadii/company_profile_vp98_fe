@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import useChildProjects from '../hooks/useChildProjects';
-import useProjects from '../hooks/useProjects';
-import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorMessage from '../components/ErrorMessage';
 import ImageLightbox from '../components/ImageLightbox';
+import useChildProjects from '../hooks/useChildProjects';
+import useProjects from '../hooks/useProjects';
 import './ProjectDetail.css';
 
 const ProjectDetail = () => {
@@ -44,7 +43,7 @@ const ProjectDetail = () => {
 
   if (projectsLoading) {
     console.log('ProjectDetail - Projects still loading...');
-    return <LoadingSpinner />;
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
   }
 
   if (projectsError) {
@@ -193,7 +192,7 @@ const ProjectDetail = () => {
           {/* Loading State for Child Projects */}
           {childLoading && (
             <div className="flex justify-center py-8">
-              <LoadingSpinner />
+              <div className="text-gray-500">Loading projects...</div>
             </div>
           )}
 

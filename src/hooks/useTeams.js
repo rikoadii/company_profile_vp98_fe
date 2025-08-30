@@ -9,7 +9,12 @@ const useTeams = () => {
     const fetchTeams = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://admin.victoryproduction98.com/api/teams.php');
+        setError(null); // Reset error state
+        
+        const apiUrl = 'https://admin.victoryproduction98.com/api/teams.php';
+        
+        // Use regular fetch instead of cached fetch temporarily
+        const response = await fetch(apiUrl);
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -36,6 +41,9 @@ const useTeams = () => {
       } catch (err) {
         setError(err.message);
         console.error('Error fetching teams:', err);
+        
+        // Set empty teams on error instead of keeping loading state
+        setTeams([]);
       } finally {
         setLoading(false);
       }

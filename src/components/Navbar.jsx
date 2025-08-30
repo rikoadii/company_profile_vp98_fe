@@ -1,7 +1,7 @@
-import logo from "../assets/logo_vp98.webp"
-import "../App.css"
-import { useState } from "react"
-import useContact from "../hooks/useContact"
+import { useState } from "react";
+import "../App.css";
+import logo from "../assets/logo_vp98.webp";
+import useContact from "../hooks/useContact";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,69 +36,78 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 w-full px-4 sm:px-8 md:px-12 lg:px-18 pt-8 z-50 bg-transparent">
-      <div className="navbar bg-neutral-50 navbar-custom rounded-4xl relative shadow-lg">
-        <div className="navbar-start">
-          <img src={logo} alt="Victory Production" className="h-16 w-auto" />
-        </div>
-        
-        {/* Desktop Menu */}
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li><a className="navbar-link text-base font-semibold" href="#home">Home</a></li>
-            <li><a className="navbar-link text-base font-semibold" href="#about">About</a></li>
-            <li><a className="navbar-link text-base font-semibold" href="#services">Services</a></li>
-            <li><a className="navbar-link text-base font-semibold" href="#team">Team</a></li>
-            <li><a className="navbar-link text-base font-semibold" href="#projects">Projects</a></li>
-          </ul>
-        </div>
-        
-        <div className="navbar-end">
-          {/* Desktop Contact Button */}
-          <a 
-            href={getWhatsAppLink()} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base hidden lg:flex"
-          >
-            Contact
-          </a>
+    <nav className="fixed top-4 left-4 right-4 z-[9999]">
+      <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200/50 mx-auto max-w-7xl">
+        <div className="flex justify-between items-center px-6 lg:px-8 py-3">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <img src={logo} alt="Victory Production" className="h-12 w-auto" />
+          </div>
           
-          {/* Mobile Hamburger Button */}
-          <button 
-            className="btn btn-ghost lg:hidden p-2 text-black hover:!bg-transparent focus:!bg-transparent focus:!border-none hover:!shadow-none focus:!shadow-none hover:!border-none"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          {/* Desktop Menu - More compact spacing */}
+          <div className="hidden lg:flex items-center bg-gray-50/80 rounded-xl px-2 py-1">
+            <a className="px-4 py-2.5 text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 font-medium text-sm" href="#home">Home</a>
+            <a className="px-4 py-2.5 text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 font-medium text-sm" href="#about">About</a>
+            <a className="px-4 py-2.5 text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 font-medium text-sm" href="#services">Services</a>
+            <a className="px-4 py-2.5 text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 font-medium text-sm" href="#team">Team</a>
+            <a className="px-4 py-2.5 text-gray-700 hover:text-white hover:bg-red-500 rounded-lg transition-all duration-300 font-medium text-sm" href="#projects">Projects</a>
+          </div>
+          
+          {/* Contact Button & Mobile Menu */}
+          <div className="flex items-center space-x-3">
+            {/* Desktop Contact Button */}
+            <a 
+              href={getWhatsAppLink()} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hidden lg:inline-flex bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.097"/>
+              </svg>
+              Contact Us
+            </a>
+            {/* Mobile Hamburger Button */}
+            <button 
+              className="lg:hidden p-2.5 text-gray-700 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all duration-200"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
 
-        {/* Mobile Menu Dropdown */}
-        {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-neutral-50 rounded-b-2xl shadow-lg lg:hidden z-50 mt-2">
-            <ul className="menu menu-vertical p-4">
-              <li><a className="navbar-link text-base font-semibold py-3" href="#home">Home</a></li>
-              <li><a className="navbar-link text-base font-semibold py-3" href="#about">About</a></li>
-              <li><a className="navbar-link text-base font-semibold py-3" href="#services">Services</a></li>
-              <li><a className="navbar-link text-base font-semibold py-3" href="#team">Team</a></li>
-              <li><a className="navbar-link ztext-base font-semibold py-3" href="#projects">Projects</a></li>
-              <li className="pt-2">
+      {/* Mobile Menu Dropdown */}
+      {isMenuOpen && (
+        <div className="lg:hidden mt-2 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-200/50 mx-auto max-w-7xl">
+          <div className="p-4">
+            <div className="space-y-2">
+              <a className="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-lg font-medium transition-all duration-200" href="#home">Home</a>
+              <a className="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-lg font-medium transition-all duration-200" href="#about">About</a>
+              <a className="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-lg font-medium transition-all duration-200" href="#services">Services</a>
+              <a className="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-lg font-medium transition-all duration-200" href="#team">Team</a>
+              <a className="block text-gray-700 hover:text-red-500 hover:bg-red-50 px-4 py-3 rounded-lg font-medium transition-all duration-200" href="#projects">Projects</a>
+              <div className="pt-3 mt-3 border-t border-gray-200">
                 <a 
                   href={getWhatsAppLink()}
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="btn btn-header rounded-full px-8 border-none shadow-none font-semibold text-base w-full"
+                  className="flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg"
                 >
-                  Contact
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.097"/>
+                  </svg>
+                  Contact Us
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </nav>
   )
 }

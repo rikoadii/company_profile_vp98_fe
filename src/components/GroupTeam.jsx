@@ -1,13 +1,12 @@
-import CardTeam from './CardTeam';
-import LoadingSpinner from './LoadingSpinner';
-import ErrorMessage from './ErrorMessage';
 import useTeams from '../hooks/useTeams';
+import CardTeam from './CardTeam';
+import ErrorMessage from './ErrorMessage';
 
 export default function GroupTeam() {
   const { teams, loading, error } = useTeams();
 
   if (loading) {
-    return <LoadingSpinner />;
+    return <div className="text-center py-8 text-gray-500">Loading teams...</div>;
   }
 
   if (error) {
