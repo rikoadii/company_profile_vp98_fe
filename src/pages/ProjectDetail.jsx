@@ -41,20 +41,13 @@ const ProjectDetail = () => {
   console.log('ProjectDetail - Child error state:', childError);
   console.log('ProjectDetail - Total records:', totalRecords);
 
-  if (projectsLoading) {
-    console.log('ProjectDetail - Projects still loading...');
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  }
-
-  if (projectsError) {
-    console.log('ProjectDetail - Projects error:', projectsError);
-    return <ErrorMessage message={projectsError} />;
-  }
-
-  if (!currentProject) {
-    console.log('ProjectDetail - No current project found, available project IDs:', projects.map(p => p.id));
-    console.log('ProjectDetail - Searched for ID:', id, 'parsed:', parseInt(id));
-    return <ErrorMessage message="Project not found" />;
+  if (projectsLoading || projectsError || !currentProject) {
+    // Animasi loading spinner
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-red-600"></div>
+      </div>
+    );
   }
 
   // Handle opening lightbox
@@ -189,22 +182,12 @@ const ProjectDetail = () => {
             )}
           </div>
 
-          {/* Loading State for Child Projects */}
-          {childLoading && (
-            <div className="flex justify-center py-8">
-              <div className="text-gray-500">Loading projects...</div>
-            </div>
-          )}
-
-          {/* Error State for Child Projects */}
-          {childError && (
-            <div className="px-4">
-              <ErrorMessage message={`Failed to load gallery: ${childError}`} />
-            </div>
-          )}
-
-          {/* Child Projects Grid - Mobile Optimized */}
-          {!childLoading && !childError && childProjects.length > 0 && (
+            {/* Loading State for Child Projects */}
+            {childLoading ? (
+              <div className="flex justify-center py-8">
+                <div className="text-gray-500">Loading projects...</div>
+              </div>
+            ) : childProjects.length > 0 ? (
             <div className="child-projects-grid">
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                 {childProjects.map((childProject, index) => (
@@ -234,10 +217,7 @@ const ProjectDetail = () => {
                 ))}
               </div>
             </div>
-          )}
-
-          {/* Empty State - Mobile Optimized */}
-          {!childLoading && !childError && childProjects.length === 0 && (
+            ) : (
             <div className="text-center py-8 sm:py-12 px-4">
               <svg className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mx-auto mb-3 sm:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -245,7 +225,7 @@ const ProjectDetail = () => {
               <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">No images available</h3>
               <p className="text-sm sm:text-base text-gray-600">This project doesn't have any gallery images yet.</p>
             </div>
-          )}
+            )}
         </div>
       </div>
 
